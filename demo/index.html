@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>gibberish-voice</title>
+    <meta name="description" content="Procedural mumble speech for game characters, built on the Web Audio API." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Pixelify+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="masthead">
+      <h1 class="wordmark" aria-label="gibberish-voice"><span>gibberish</span><span class="dash">-</span><span>voice</span></h1>
+      <p class="tagline">Give a character a voice with a few numbers. No audio files, no voice actors.</p>
+      <button class="install" type="button" data-copy="npm i gibberish-voice" aria-label="Copy install command">
+        <code>npm i gibberish-voice</code>
+      </button>
+    </header>
+
+    <main class="layout">
+      <section class="stage-column" aria-label="Stage">
+        <div class="stage">
+          <canvas id="creature" aria-hidden="true"></canvas>
+        </div>
+
+        <div class="dialogue" id="dialogue">
+          <span class="nametag" id="nametag">Orc</span>
+          <label class="visually-hidden" for="line">Line to speak</label>
+          <textarea id="line" rows="3" spellcheck="false" maxlength="400"></textarea>
+          <p class="typed" id="typed" aria-live="polite"></p>
+          <div class="dialogue-actions">
+            <button type="button" class="ghost-button" id="shuffle" title="Pick another sample line">Another line</button>
+            <button type="button" class="speak-button" id="speak">
+              <span class="speak-label">Speak</span>
+              <kbd>Enter</kbd>
+            </button>
+          </div>
+        </div>
+
+        <details class="how">
+          <summary>How it sounds like speech</summary>
+          <p>
+            Every vowel group in your text becomes one syllable. A buzzing source is shaped by four
+            resonant filters (formants) set to measured vowel frequencies, so “moon” and “see” sound different.
+            The size knob scales those formants together, which is why an orc sounds big and not just low.
+            Punctuation gives the melody: pitch drifts down across a phrase, rises on a question, and pauses at commas
+            and full stops. Small random wobbles in pitch keep it from sounding like a machine.
+          </p>
+        </details>
+      </section>
+
+      <aside class="controls" aria-label="Voice">
+        <div class="panel">
+          <h2>Cast</h2>
+          <div class="cast" id="cast" role="radiogroup" aria-label="Preset voices"></div>
+        </div>
+
+        <div class="panel">
+          <h2>Voice</h2>
+          <div class="knobs" id="knobs"></div>
+        </div>
+
+        <div class="panel code-panel">
+          <div class="code-head">
+            <h2>Code</h2>
+            <button type="button" class="ghost-button" id="copy-code">Copy</button>
+          </div>
+          <pre><code id="code"></code></pre>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="footer">
+      <p>MIT licensed. Works anywhere the Web Audio API does: browsers, and Node with <code>node-web-audio-api</code>.</p>
+    </footer>
+
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

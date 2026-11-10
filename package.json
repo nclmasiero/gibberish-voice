@@ -1,0 +1,67 @@
+{
+  "name": "gibberish-voice",
+  "version": "0.1.0",
+  "description": "Procedural mumble speech for game characters. Give it text and a few voice knobs; get Animal Crossing-style gibberish from the Web Audio API. Zero dependencies, zero audio files.",
+  "keywords": [
+    "gibberish",
+    "mumble",
+    "babble",
+    "speech",
+    "voice",
+    "web-audio",
+    "webaudio",
+    "formant",
+    "synthesis",
+    "procedural-audio",
+    "gamedev",
+    "dialogue",
+    "npc",
+    "animalese"
+  ],
+  "license": "MIT",
+  "author": "enne (https://github.com/nclmasiero)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nclmasiero/gibberish-voice.git"
+  },
+  "homepage": "https://github.com/nclmasiero/gibberish-voice#readme",
+  "bugs": {
+    "url": "https://github.com/nclmasiero/gibberish-voice/issues"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "src",
+    "!**/*.test.*"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\" && tsc -p tsconfig.build.json",
+    "build:demo": "vite build",
+    "typecheck": "tsc -p . --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build",
+    "render": "npm run build && node scripts/render.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "node-web-audio-api": "^2.2.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.7",
+    "vitest": "^5.1.0"
+  }
+}
