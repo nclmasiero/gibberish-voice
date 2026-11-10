@@ -2,6 +2,8 @@
 
 Procedural mumble speech for game characters. Pass a line of text and a few voice knobs and you get Animal Crossing / Banjo-style gibberish, synthesised live with the Web Audio API.
 
+**[Try the voices in your browser](https://nclmasiero.github.io/gibberish-voice/)**
+
 - **Zero dependencies and no audio files.** About 7 kB minified and gzipped.
 - **The text shapes the voice.** You get one sound per syllable, vowels that follow the spelling, and melody and pauses that follow the punctuation. A name keeps its vowels every time it's said.
 - **Distinct characters from a few numbers.** Old men, children, orcs, ghosts, robots. Size changes the vocal tract itself, so a big creature sounds big rather than like a pitched-down man.

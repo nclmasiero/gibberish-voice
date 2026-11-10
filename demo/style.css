@@ -480,6 +480,16 @@ input {
   color: var(--ink-soft);
 }
 
+.footer a {
+  color: var(--ink);
+  font-weight: 600;
+  text-underline-offset: 3px;
+}
+
+.footer a:hover {
+  color: var(--pink);
+}
+
 .footer {
   max-width: 1240px;
   margin: 0 auto;
